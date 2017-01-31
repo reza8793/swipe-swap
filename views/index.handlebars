@@ -1,0 +1,26 @@
+<h1>Seller List</h1>
+
+
+<ul>
+  {{#each sellers}}
+  	<li>
+    <div>
+  	   <p>Seller Name: {{this.name}}</p>
+       <p> Swipes : {{this.numSwipes}}</p>
+       <p> Cost per Swipe : {{this.swipePrice}}</p>
+       <a href = "/purchasePage/{{id}}">
+        <button> Buy </button>
+      </a>
+    </div>
+  	</li>
+   
+  {{/each}}
+</ul>
+
+<div>
+  <form action="/create" method="POST">
+  	<textarea type="text" name="wish"></textarea>
+
+  	<button type="submit">Submit</button>
+  </form>
+</div>
