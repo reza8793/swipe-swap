@@ -36,29 +36,29 @@ module.exports = function(app) {
   });
 
 
-  app.post("/api/newBuyer", function(req, res) {
-     // store new buyer data
-    console.log("consoling req.body from api-routes.js post route " + req.body);
-    db.Student.create(req.body).then(function(newBuyer) {
+  // app.post("/api/newBuyer", function(req, res) {
+  //    // store new buyer data
+  //   console.log("consoling req.body from api-routes.js post route " + req.body);
+  //   db.Student.create(req.body).then(function(newBuyer) {
 
 
-    	db.Student.findOne({
+  //   	db.Student.findOne({
 
-      where : {
-        id: req.body.seller.id
-      }
-    }).then(function(sellerfind) {
-      res.json(sellerfind);
+  //     where : {
+  //       id: req.body.seller.id
+  //     }
+  //   }).then(function(sellerfind) {
+  //     res.json(sellerfind);
 
-    	//db.student.findOne( where id ...req.body.seller.id)
-    	// find seller
-    	// remove swipe & add money from req.body.numSwipes from seller's balance
-    	// add swipes & subtract money to for buyer
-      res.json(newBuyer);
+  //   	//db.student.findOne( where id ...req.body.seller.id)
+  //   	// find seller
+  //   	// remove swipe & add money from req.body.numSwipes from seller's balance
+  //   	// add swipes & subtract money to for buyer
+  //     res.json(newBuyer);
 
-      //before rest
-    });
-  });
+  //     //before rest
+  // //   });
+  // });
 
 
 
