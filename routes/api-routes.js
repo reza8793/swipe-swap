@@ -2,6 +2,9 @@ var db = require("../models");
 
 module.exports = function(app) {
   // Find all Authors and return them to the user with res.json
+  
+
+
   app.get("/api/sellers", function(req, res) {
     db.Student.findAll({
 
@@ -31,6 +34,33 @@ module.exports = function(app) {
       res.json(newSeller);
     });
   });
+
+
+  app.post("/api/newBuyer", function(req, res) {
+     // store new buyer data
+    console.log("consoling req.body from api-routes.js post route " + req.body);
+    db.Student.create(req.body).then(function(newBuyer) {
+
+
+    	db.Student.findOne({
+
+      where : {
+        id: req.body.seller.id
+      }
+    }).then(function(sellerfind) {
+      res.json(sellerfind);
+
+    	//db.student.findOne( where id ...req.body.seller.id)
+    	// find seller
+    	// remove swipe & add money from req.body.numSwipes from seller's balance
+    	// add swipes & subtract money to for buyer
+      res.json(newBuyer);
+
+      //before rest
+    });
+  });
+
+
 
 
 
