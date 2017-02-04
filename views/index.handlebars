@@ -1,7 +1,40 @@
 
+ <link rel="stylesheet" href="{{../../css/postings.css}}"">
 
-<div class="container">
-  <div class="row">
+<h1>Seller List </h1>
 
-  </div>
+
+<ul>
+ {{#each sellers}}
+   <div class="panel panel-default">
+   <div class="panel-heading">Sellers</div>
+   <table class="table">
+        <thead>
+       <tr>
+         <th> Seller Name</th>
+         <th> Swipes </th>
+         <th> Cost Per Swipe </th>
+         <th> Purchase </th>
+       </tr>
+     </thead>
+     <tbody>
+      <tr>
+       <th scope="row"><p>Seller Name: {{this.name}}</p></th>
+       <td> Swipes : {{this.numSwipes}} </td>
+       <td> Cost per Swipe : {{this.swipePrice}} </td>
+       <td> <a href = "/purchasePage/{{id}}">
+       <button> Buy </button></td>
+       </tr>
+       </tbody>
+   </table>
+   </div>
+ {{/each}}
+</ul>
+
+<div>
+ <form action="/create" method="POST">
+     <textarea type="text" name="wish"></textarea>
+
+     <button type="submit">Submit</button>
+ </form>
 </div>

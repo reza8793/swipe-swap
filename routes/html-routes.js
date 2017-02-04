@@ -11,20 +11,24 @@ var db = require("../models");
 module.exports = function(app) {
 
 
-  app.get("/newSeller", function(req, res) {
-    res.sendFile(path.join(__dirname + "/../public/newSeller.html"));
+  // app.get("/", function(req, res) {
+  //   res.sendFile(path.join(__dirname + "/../public/newSeller.html"));
+  // });
+
+  app.get("/students", function(req, res) {
+    res.render("index")
   });
 
-  app.get("/buyer", function(req, res) {
+  // app.get("/buyer", function(req, res) {
 
-    db.Student.findAll({
+  //   db.Student.findAll({
 
-      where : {
-        userType: "seller"
-      }
-    }).then(function(sellerList) {
-      res.render("index", {sellers: sellerList});
-    });
+  //     where : {
+  //       userType: "seller"
+  //     }
+  //   }).then(function(sellerList) {
+  //     res.render("index", {sellers: sellerList});
+  //   });
 
-  });
+  // });
 };

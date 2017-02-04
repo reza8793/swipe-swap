@@ -1,6 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
-  var Transaction = sequelize.define("Transactiond", {
-    studentID: {
+  var Transaction = sequelize.define("Transaction", {
+    sellerID: {
       type: DataTypes.INTEGER,
       // defaultValue: "reza",
     
@@ -25,14 +25,14 @@ module.exports = function(sequelize, DataTypes) {
     userType: {
       type: DataTypes.STRING,
       allowNull: false,
-    },
-     {
+    }
+  }, {
       // We're saying that we want our Author to have Posts
       classMethods: {
         associate: function(models) {
           // When we delete an Author, we'll also delete their Posts "cascade"
           // An Author (foreignKey) is required or a Post can't be made
-          Post.belongsTo(models.Student,
+          Transaction.belongsTo(models.Student,
             {
               onDelete: "cascade",
               foreignKey: {
@@ -41,7 +41,6 @@ module.exports = function(sequelize, DataTypes) {
             });
         }
       }
-    
   });
   return Transaction;
 };

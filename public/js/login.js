@@ -48,7 +48,7 @@ $(document).ready(function() {
       var loginDiv = $("<div>");
       loginDiv.addClass("alert alert-danger");
       loginDiv.attr("role", "alert");
-      
+      var span
 
     }
 }

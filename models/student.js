@@ -54,16 +54,15 @@ module.exports = function(sequelize, DataTypes) {
     password: {
       type: DataTypes.STRING,
       allowNull: false
-    },
-    {
+    }
+  }, {
       // We're saying that we want our Author to have Posts
       classMethods: {
         associate: function(models) {
           // Associating Author with Posts
-          Student.hasMany(models.IndvidualTransactions);
+          Student.hasMany(models.Transaction);
         }
       }
-    
   });
   return Student;
 };

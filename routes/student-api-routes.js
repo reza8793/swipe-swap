@@ -54,5 +54,8 @@ app.get("/api/students", function(req, res) {
 
 
 
-
+app.put("/api/students/", function(req, ers) {
+  db.Student.update(
+    )
+  });
 };
