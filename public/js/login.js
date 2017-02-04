@@ -23,6 +23,7 @@ $(document).ready(function() {
    		if(!student) {
    			incorrectLogin();
    		} else {
+   			
    			$.get("/api/transactions" + student.studentId, function(data) {
    				console.log("transactions ", data);
    				transactions = data;
@@ -42,5 +43,12 @@ $(document).ready(function() {
 	      postsToAdd.push(createNewRow(posts[i]));
 	    }
 	    blogContainer.append(postsToAdd);
+    }
+    function incorrectLogin {
+      var loginDiv = $("<div>");
+      loginDiv.addClass("alert alert-danger");
+      loginDiv.attr("role", "alert");
+      
+
     }
 }

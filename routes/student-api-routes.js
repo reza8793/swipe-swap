@@ -6,7 +6,10 @@ app.get("/api/students", function(req, res) {
     db.Student.findAll({
       include: [db.IndividualTransactions]
     }).then(function(dbStudent) {
-      res.json(dbStudent);
+      var hbsObject = {
+        student: dbStudent
+      }
+      res.render("index", hbsObject);
     });
   });
   // Check Login Information
@@ -23,7 +26,10 @@ app.get("/api/students", function(req, res) {
   // Find all Authors and return them to the user with res.json
   app.post("/api/students", function(req, res) {
     db.Student.create(req.body).then(function(dbStudent) {
-      res.json(dbStudent);
+
+      console.log(dbStudent);
+      // redirect to get all students.
+      res.redirect("/api/students")
     });
   });
 

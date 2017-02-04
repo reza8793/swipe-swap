@@ -1,5 +1,5 @@
 module.exports = function(sequelize, DataTypes) {
-  var IndividualTransactions = sequelize.define("IndividualTransactions", {
+  var Transaction = sequelize.define("Transactiond", {
     studentID: {
       type: DataTypes.INTEGER,
       // defaultValue: "reza",
@@ -43,5 +43,5 @@ module.exports = function(sequelize, DataTypes) {
       }
     
   });
-  return IndividualTransactions;
+  return Transaction;
 };

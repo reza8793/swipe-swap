@@ -2,38 +2,38 @@ module.exports = function(sequelize, DataTypes) {
   var Student = sequelize.define("Student", {
     name: {
       type: DataTypes.STRING,
-      defaultValue: "reza",
+      // defaultValue: "reza",
     
-      // allowNull: false,
+      allowNull: false,
      
-        len: [1]
+      len: [1]
       
     },
 
-    userType: {
-      type: DataTypes.STRING,
+    // userType: {
+    //   type: DataTypes.STRING,
         
-      // allowNull: false,
+    //   // allowNull: false,
       
-        len: [1], 
+    //     len: [1], 
       
-      defaultValue: "buyer"
-    },
+    //   defaultValue: "buyer"
+    // },
 
-    swipePrice: {
-      type: DataTypes.INTEGER,
+    // swipePrice: {
+    //   type: DataTypes.INTEGER,
     
-      // allowNull: false,
-      len: [1],
-      defaultValue: 1
-    },
+    //   // allowNull: false,
+    //   len: [1],
+    //   defaultValue: 1
+    // },
     
     studentID: {
       type: DataTypes.INTEGER,
-      defaultValue: 809,
+      // defaultValue: 809,
     
 
-      // allowNull: false,
+      allowNull: false,
       len: [1]
     },
 
@@ -53,8 +53,16 @@ module.exports = function(sequelize, DataTypes) {
 
     password: {
       type: DataTypes.STRING,
-      defaultValue: "Personal"
-    }
+      allowNull: false
+    },
+    {
+      // We're saying that we want our Author to have Posts
+      classMethods: {
+        associate: function(models) {
+          // Associating Author with Posts
+          Student.hasMany(models.IndvidualTransactions);
+        }
+      }
     
   });
   return Student;

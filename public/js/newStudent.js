@@ -31,7 +31,7 @@ $(document).ready(function() {
       password: $("#password").val().trim()
     };
 
-    $.post("/api/students",newStudent)
+    $.get("/api/students",newStudent)
     .done(function(data) {
 
         console.log("consoling newSeller data from newSeller.js " + data);
