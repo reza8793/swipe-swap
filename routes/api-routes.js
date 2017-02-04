@@ -5,7 +5,7 @@ module.exports = function(app) {
   
 
 
-  app.get("/api/sellers", function(req, res) {
+  app.get("/api/students", function(req, res) {
     db.Student.findAll({
 
     	where : {
